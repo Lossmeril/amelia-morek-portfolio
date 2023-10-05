@@ -1,10 +1,15 @@
+"use client";
+
 import { BsLinkedin, BsInstagram } from "react-icons/bs";
 import Image from "next/image";
+import FeaturedProjectCard from "@/components/featuredProjectCard";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     /*  MADE WITH MINIMALISM, REACT AND LOVE  */
-    <main className="">
+    <main className="w-screen overflow-x-hidden">
       <div className="w-full h-full min-h-screen grid grid-rows-4 grid-cols-1 md:grid-rows-2 md:grid-cols-2">
         <div className="w-full h-full relative p-12 xl:p-[10%] xl:pl-[15%] xl:pt-[7%] outline-black outline outline-1">
           <div className="mt-[50%] md:mt-0">
@@ -29,48 +34,28 @@ export default function Home() {
         </div>
         <div className="w-full h-full relative p-[10%] outline-black outline outline-1">
           <ul className="list-none italic text-3xl text-center underline centered-absolute">
+            <Link href="/journey">
+              <li className="mb-5">my journey</li>
+            </Link>
             <li className="mb-5">works</li>
             <li className="mb-5">films</li>
             <li className="mb-5">writing</li>
           </ul>
         </div>
         <div className="w-full h-screen md:h-full relative outline-black outline outline-1">
-          <div className="w-full h-[15%] relative">
-            <h2 className="italics text-center text-2xl md:text-3xl lowercase font-bold centered-absolute mt-1">
-              Featured projects:
-            </h2>
-          </div>
-          <div className="w-full h-[85%] grid grid-rows-2 md:grid-rows-1 grid-cols-1 md:grid-cols-2">
-            <div
-              className="overflow-hidden w-[75%] aspect-square md:aspect-auto mx-auto md:my-5 relative"
-              style={{
-                backgroundImage: "url(/img/lrad.jpg)",
-                backgroundSize: "cover",
-              }}
-            >
-              <div className="centered-absolute z-10 text-white text-center">
-                <h3 className="font-bold text-xl lowercase italic">
-                  Like Real Adults do
-                </h3>
-                <p className="italic text-md">short film</p>
-                <p className="italic text-sm">2023</p>
-              </div>
-            </div>
-            <div
-              className="overflow-hidden w-[75%] aspect-square md:aspect-auto mx-auto md:my-5 relative"
-              style={{
-                backgroundImage: "url(/img/lrad.jpg)",
-                backgroundSize: "cover",
-              }}
-            >
-              <div className="centered-absolute z-10 text-white text-center">
-                <h3 className="font-bold text-xl lowercase italic">
-                  Like Real Adults do
-                </h3>
-                <p className="italic text-md">short film</p>
-                <p className="italic text-sm">2023</p>
-              </div>
-            </div>
+          <div className="w-full h-full grid grid-rows-2 xl:grid-rows-1 grid-cols-1 xl:grid-cols-2">
+            <FeaturedProjectCard
+              imgSrc="/img/lrad.jpg"
+              title="Like Real Adults Do"
+              type="short film"
+              year="2023"
+            />
+            <FeaturedProjectCard
+              imgSrc="/img/lrad.jpg"
+              title="Like Real Adults Do"
+              type="short film"
+              year="2023"
+            />
           </div>
         </div>
         <div className="w-full h-full relative p-[10%] outline-black outline outline-1">
